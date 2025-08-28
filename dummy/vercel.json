@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "dummy/dummy/wsgi.py",
+            "src": "dummy/wsgi.py",
             "use": "@vercel/python",
             "config": { "maxLambdaSize": "15mb", "runtime": "python3.10" }
         }
@@ -10,7 +10,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "dummy/dummy/wsgi.py"
+            "dest": "dummy/wsgi.py"
         }
     ]
 }

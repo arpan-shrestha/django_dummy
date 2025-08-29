@@ -21,15 +21,21 @@
   </style>
 </head>
 <body>
-  <div id="message">Hello World</div>
+  <div id="message">Hello World!!!</div>
 
   <script>
     $(document).ready(function(){
-      $("#message")
-        .fadeIn(1000)       // fade in
-        .animate({fontSize: "3rem"}, 1000) // grow text
-        .delay(1000)        // wait
-        .fadeOut(1000);     // fade out
+      function animateMessage() {
+        $("#message")
+          .fadeIn(1000)                     // fade in
+          .animate({ fontSize: "3rem" }, 1000)  // grow text
+          .delay(1000)                      // wait
+          .fadeOut(1000, function() {       // fade out
+            $(this).css("font-size", "2rem"); // reset font size
+            animateMessage();               // repeat animation
+          });
+      }
+      animateMessage(); // start animation loop
     });
   </script>
 </body>
